@@ -70,9 +70,9 @@ class MainActivity : AppCompatActivity(),CarAdapter.OnItemClickListener {
     fun insertCar(view : View)
     {
 
-            val index : Int =  4
+            val index : Int =  0
 
-            val newCar = Cars_Item(R.drawable.any, "Başka", "Araba")
+            val newCar = Cars_Item(R.drawable.any, "Altă Mașină", "Necunoscut")
             cars.add(index, newCar)
             adapter.notifyItemInserted(index)
             load()
@@ -84,10 +84,16 @@ class MainActivity : AppCompatActivity(),CarAdapter.OnItemClickListener {
 
     fun removeCar(view : View)
     {
-        if(removeClickedCar!=null)
+        if(removeClickedCar!=null && cars.size>=removeClickedCar!!)
         {
             cars.removeAt(removeClickedCar!!)
             adapter.notifyItemRemoved(removeClickedCar!!)
+            removeClickedCar=null
+        }
+
+        else if(removeClickedCar==null)
+        {
+            Toast.makeText(this,"Please Choose a car!", Toast.LENGTH_SHORT).show()
         }
 
         load()
@@ -95,8 +101,9 @@ class MainActivity : AppCompatActivity(),CarAdapter.OnItemClickListener {
 
     override fun onItemClick(position: Int) {
         val carSelected = cars[position].Brand + " " + cars[position].Name
-        Toast.makeText(this,"$carSelected is clicked.", Toast.LENGTH_LONG).show()
+        Toast.makeText(this,"$carSelected is clicked.", Toast.LENGTH_SHORT).show()
         removeClickedCar = position
+
     }
 
 

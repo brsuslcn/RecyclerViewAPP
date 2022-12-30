@@ -30,7 +30,7 @@ class CarAdapter(private val carList : List<Cars_Item> , private val listener : 
         val imageView : ImageView = itemView.image_view
         val brand : TextView = itemView.txtBrand
         val model : TextView = itemView.txtModel
-        
+
 
         init {
            itemView.setOnClickListener(this)
