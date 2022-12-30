@@ -1,6 +1,7 @@
 # RecyclerViewAPP
 
 Main Technologies Used:
+
 • Kotlin; ReyclerView, Cardview Dependencies
 
 • Created car Items (Logo, Brand, Model)
